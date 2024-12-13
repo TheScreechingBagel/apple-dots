@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: apple-dots
 # description will be included in the image's metadata
-description: MacBookPro 14,2 work maybe??? 
+description: MacBookPro 14,2 work maybe???
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/aurora-dx
@@ -13,22 +13,22 @@ modules:
 
 - type: files
   files:
-    - source: system/etc
-      destination: /etc
-    - source: system/usr
-      destination: /usr
-    - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
-      destination: /lib/firmware
+  - source: system/etc
+    destination: /etc
+  - source: system/usr
+    destination: /usr
+  - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
+    destination: /lib/firmware
 
 - type: rpm-ostree
   install:
-   - tiny-dfr
+  - tiny-dfr
 
-  - type: script
-    scripts:
-      # pull Wifi/BT firmware sources from arch-t2 mirror
-      # using asahi-installer fork to package for use in fedora
-      # it's hacky <3
-      - apple-bcm-firmware.sh 
-  
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+- type: script
+  scripts:
+    # pull Wifi/BT firmware sources from arch-t2 mirror
+    # using asahi-installer fork to package for use in fedora
+    # it's hacky <3
+    - apple-bcm-firmware.sh
+
+- type: signing # this sets up the proper policy & signing files for signed images to work fully
