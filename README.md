@@ -1,8 +1,10 @@
 # apple-dots &nbsp; [![bluebuild build badge](https://github.com/thescreechingbagel/apple-dots/actions/workflows/build.yml/badge.svg)](https://github.com/thescreechingbagel/apple-dots/actions/workflows/build.yml)
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+#### "apple dotfiles"
 
-After setup, it is recommended you update this README to describe your custom image.
+an attempt to make a [ublue-os/aurora-dx](https://github.com/ublue-os/aurora) base image work nicely on a MacBookPro14,2 (2017 macbook pro 13in) - ie wifi firmware/settings, touchbar
+
+largely based on [lauretano/t2-atomic](https://github.com/lauretano/t2-atomic)
 
 ## Installation
 
