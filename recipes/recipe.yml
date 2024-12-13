@@ -20,8 +20,13 @@ modules:
     destination: /lib/firmware
 
 - type: rpm-ostree
+  repos:
+  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
+
   install:
   - tiny-dfr
+  - bpftune
+  - facetimehd-kmod # webcam kernel module
 
 - type: script
   scripts:
@@ -30,4 +35,5 @@ modules:
     # it's hacky <3
     - apple-bcm-firmware.sh
 
+# - type: initramfs # rebuild initramfs (https://github.com/blue-build/modules/pull/376)
 - type: signing # this sets up the proper policy & signing files for signed images to work fully
