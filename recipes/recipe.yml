@@ -26,7 +26,8 @@ modules:
   install:
   - tiny-dfr
   - bpftune
-  - facetimehd-kmod # webcam kernel module
+#  - facetimehd-kmod # webcam kernel module
+  - mbpfan
 
 - type: script
   scripts:
