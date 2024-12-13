@@ -17,12 +17,18 @@ modules:
       destination: /etc
     - source: system/usr
       destination: /usr
+    - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
+      destination: /lib/firmware
+
+- type: rpm-ostree
+  install:
+   - tiny-dfr
 
   - type: script
     scripts:
       # pull Wifi/BT firmware sources from arch-t2 mirror
       # using asahi-installer fork to package for use in fedora
       # it's hacky <3
-      - apple-bcm-firmware.sh #also bagel added the config file hopefully
+      - apple-bcm-firmware.sh 
   
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
