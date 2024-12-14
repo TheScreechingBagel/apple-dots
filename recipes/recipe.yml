@@ -21,7 +21,7 @@ modules:
 
 - type: rpm-ostree
   repos:
-  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
+  - https://copr.fedorainfracloud.org/coprs/mulderje/intel-mac-rpms/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
   
   install:
   - tiny-dfr
