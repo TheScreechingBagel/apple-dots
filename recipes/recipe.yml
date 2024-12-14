@@ -19,7 +19,7 @@ modules:
   - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
     destination: /lib/firmware
 
-- type: akmod
+- type: akmods
   install:
   - facetimehd # available as an akmod
 
