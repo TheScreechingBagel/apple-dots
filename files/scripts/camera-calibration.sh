@@ -22,4 +22,4 @@ dd bs=1 skip=1644880 count=19040 if=AppleCamera.sys of=1771_01XX.dat
 dd bs=1 skip=1606800 count=19040 if=AppleCamera.sys of=1871_01XX.dat
 dd bs=1 skip=1625840 count=19040 if=AppleCamera.sys of=1874_01XX.dat
 
-#TODO copy to the proper place
+mv *.dat /lib/firmware/facetimehd

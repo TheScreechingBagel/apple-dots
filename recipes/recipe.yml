@@ -20,8 +20,8 @@ modules:
     destination: /lib/firmware
 
 - type: rpm-ostree
-  repos:
-  - https://copr.fedorainfracloud.org/coprs/mulderje/intel-mac-rpms/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
+#  repos:
+#  - https://copr.fedorainfracloud.org/coprs/mulderje/intel-mac-rpms/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
   
   install:
   - tiny-dfr
@@ -29,9 +29,9 @@ modules:
 #  - facetimehd-kmod # webcam kernel module
   - mbpfan
 
-- type: akmods
-  install:
-  - facetimehd # available as an akmod
+#- type: akmods
+#  install:
+#  - facetimehd # available as an akmod
 
 - type: script
   scripts:
@@ -39,6 +39,14 @@ modules:
     # using asahi-installer fork to package for use in fedora
     # it's hacky <3
     - apple-bcm-firmware.sh
+    # download *part of* bootcamp driver pack, extract necessary files, dump em :)
+    - camera-calibration.sh
+
+- type: systemd
+  system:
+    enabled:
+    - mbpfan.service
+    - mac-wifi-txpower.service
 
 # - type: initramfs # rebuild initramfs (https://github.com/blue-build/modules/pull/376)
 - type: signing # this sets up the proper policy & signing files for signed images to work fully
