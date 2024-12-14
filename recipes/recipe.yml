@@ -19,6 +19,10 @@ modules:
   - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
     destination: /lib/firmware
 
+- type: akmod
+  install:
+  - facetimehd # available as an akmod
+
 - type: rpm-ostree
 #  repos:
 #  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
@@ -27,7 +31,6 @@ modules:
   - tiny-dfr
 #  - bpftune # oh it isn't available in the repos lol; if i ever feel like it, gotta compile at build
 #  - facetimehd-kmod # webcam kernel module
-  - facetimehd # available as an akmod
   - mbpfan
 
 - type: script
