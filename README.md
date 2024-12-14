@@ -60,7 +60,7 @@ https://github.com/almas/macbook12-spi-driver  - check out if tiny-dfr doesn't w
 
 https://gist.github.com/roadrunner2/1289542a748d9a104e7baec6a92f9cd7
 
-https://github.com/patjak/facetimehd/wiki/Installation#get-started-on-fedora
+https://github.com/patjak/facetimehd/wiki/Installation#get-started-on-fedora wait wait: https://github.com/ublue-os/akmods/pull/163
 
 https://github.com/davidjo/snd_hda_macbookpro ?
 

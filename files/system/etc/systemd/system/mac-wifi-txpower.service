@@ -1,0 +1,15 @@
+[Unit]
+Description=Set built-in wireless adapter txpower to 20.0 dBm
+Wants=sysinit.target
+After=systemd-modules-load.service
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 2
+ExecStart=/usr/sbin/iw phy phy0 set txpower limit 2000
+RemainAfterExit=yes
+TimeoutSec=0
+
+[Install]
+WantedBy=multi-user.target
