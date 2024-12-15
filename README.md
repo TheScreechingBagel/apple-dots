@@ -79,3 +79,5 @@ https://github.com/blue-build/modules/pull/376 - have the system folder Do Stuff
 
 
 no link but: setting the wifi card (`phy0`/`wlp2s0` for me) `rxpower` to 20dBm seems to work pretty well - `sudo iw phy phy0 set txpower limit 2000`
+
+
