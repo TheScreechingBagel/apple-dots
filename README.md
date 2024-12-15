@@ -76,6 +76,8 @@ https://github.com/WhatAmISupposedToPutHere/tiny-dfr/tree/master/etc/systemd/sys
 
 https://github.com/blue-build/modules/pull/376 - have the system folder Do Stuff
 
+https://github.com/ublue-os/bluefin/issues/1783
+
 
 
 no link but: setting the wifi card (`phy0`/`wlp2s0` for me) `rxpower` to 20dBm seems to work pretty well - `sudo iw phy phy0 set txpower limit 2000`
