@@ -9,6 +9,20 @@ description: MacBookPro14,2 work maybe???
 base-image: ghcr.io/ublue-os/aurora-dx
 image-version: stable # latest is also supported if you want new updates ASAP
 
+stages:
+- name: firmwarez
+  from: docker.io/library/debian:stable-slim
+  modules:
+  - type: script
+    scripts:
+      - upd8.sh
+      # pull Wifi/BT firmware sources from arch-t2 mirror
+      # using asahi-installer fork to package for use in fedora
+      # it's hacky <3
+      - apple-bcm-firmware.sh
+      # download *part of* bootcamp driver pack, extract necessary files, dump em :)
+      - camera-calibration.sh
+
 modules:
 - type: files
   files:
@@ -19,9 +33,14 @@ modules:
   - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
     destination: /lib/firmware
 
+- type: copy
+  from: firmwarez
+  src: /out/lib/firmware/
+  dest: /lib/firmware
+
 - type: rpm-ostree
 #  repos:
-#  - https://copr.fedorainfracloud.org/coprs/mulderje/intel-mac-rpms/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
+#  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
   
   install:
   - tiny-dfr
@@ -32,15 +51,6 @@ modules:
 #- type: akmods
 #  install:
 #  - facetimehd # available as an akmod
-
-- type: script
-  scripts:
-    # pull Wifi/BT firmware sources from arch-t2 mirror
-    # using asahi-installer fork to package for use in fedora
-    # it's hacky <3
-    - apple-bcm-firmware.sh
-    # download *part of* bootcamp driver pack, extract necessary files, dump em :)
-    - camera-calibration.sh
 
 - type: systemd
   system:
