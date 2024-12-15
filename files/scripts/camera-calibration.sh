@@ -17,13 +17,6 @@ echo 'Extracting and installing the sensor calibration files from the .exe' # as
 cd BootCamp/Drivers/Apple/
 unrar x AppleCamera64.exe
 
-#dd bs=1 skip=1663920 count=33060 if=AppleCamera.sys of=9112_01XX.dat
-#dd bs=1 skip=1644880 count=19040 if=AppleCamera.sys of=1771_01XX.dat
-#dd bs=1 skip=1606800 count=19040 if=AppleCamera.sys of=1871_01XX.dat
-#dd bs=1 skip=1625840 count=19040 if=AppleCamera.sys of=1874_01XX.dat
-#
-#mv *.dat /lib/firmware/facetimehd
-
 mkdir -p /out/lib/firmware/facetimehd
 
 dd bs=1 skip=1663920 count=33060 if=AppleCamera.sys of=/out/lib/firmware/facetimehd/9112_01XX.dat
