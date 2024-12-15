@@ -58,5 +58,5 @@ modules:
     - mbpfan.service
     - mac-wifi-txpower.service
 
-- type: initramfs # rebuild initramfs
+- type: initramfs # rebuild initramfs # only ostree?
 - type: signing # this sets up the proper policy & signing files for signed images to work fully
