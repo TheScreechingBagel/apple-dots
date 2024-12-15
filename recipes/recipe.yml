@@ -58,5 +58,5 @@ modules:
     - mbpfan.service
     - mac-wifi-txpower.service
 
-# - type: initramfs # rebuild initramfs (https://github.com/blue-build/modules/pull/376)
+- type: initramfs # rebuild initramfs
 - type: signing # this sets up the proper policy & signing files for signed images to work fully
