@@ -26,8 +26,8 @@ mkdir ../firmware-bluetooth
 python3 -m asahi_firmware.wifi wifi ../firmware-wifi
 python3 -m asahi_firmware.bluetooth bluetooth ../firmware-bluetooth
 
-mkdir -p /out/lib/firmware
+mkdir -p /out/lib/firmware/brcm
 
 echo 'Installing firmware where Fedora desires'
-tar xf ../firmware-wifi/firmware.tar --directory /out/lib/firmware
-tar xf ../firmware-bluetooth/firmware.tar --directory /out/lib/firmware
+tar xf ../firmware-wifi/firmware.tar --directory /out/lib/firmware/brcm
+tar xf ../firmware-bluetooth/firmware.tar --directory /out/lib/firmware/brcm
