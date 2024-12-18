@@ -32,6 +32,8 @@ modules:
     destination: /usr
   - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
     destination: /lib/firmware
+  - source: system/var/lib/flatpak/extension
+    destination: /var/lib/flatpak/extension
 
 - type: copy
   from: firmwarez
@@ -39,8 +41,8 @@ modules:
   dest: /lib/firmware
 
 - type: rpm-ostree
-#  repos:
-#  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
+  # repos:
+  # - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
   
   install:
   - tiny-dfr
