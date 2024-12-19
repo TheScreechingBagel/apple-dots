@@ -1,10 +1,8 @@
 {   
     "policies": {
         "ExtensionSettings": {
-            "{8b5fde66-c64d-4a33-99f1-c7c94138d67e}": {
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/no-transition/latest.xpi",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi",
                 "installation_mode": "normal_installed"
-            }
         }
     }
 }
