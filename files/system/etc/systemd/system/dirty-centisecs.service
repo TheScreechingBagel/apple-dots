@@ -5,7 +5,7 @@ Before=systemd-user-sessions.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/dirty-centisecs
+ExecStart=/bin/bash /usr/bin/dirty-centisecs
 
 [Install]
 WantedBy=multi-user.target
