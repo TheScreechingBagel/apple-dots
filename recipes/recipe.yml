@@ -30,8 +30,10 @@ modules:
     destination: /etc
   - source: system/usr
     destination: /usr
-  - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
-    destination: /lib/firmware
+#  - source: system/lib/firmware # brcmfmac43602-pcie.txt config taken from https://github.com/Dunedan/mbp-2016-linux/issues/47#issuecomment-663926000
+#    destination: /lib/firmware
+  - source: system/lib
+    destination: /lib
 
 - type: copy
   from: firmwarez
