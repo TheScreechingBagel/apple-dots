@@ -59,7 +59,7 @@ modules:
     enabled:
     - mbpfan.service
     - mac-wifi-txpower.service
-    - dirty-centisecs.service
+#    - dirty-centisecs.service
     - memory-tweaks-gidro.service
 
 - type: initramfs # rebuild initramfs # only ostree?
