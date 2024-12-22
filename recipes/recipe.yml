@@ -7,7 +7,7 @@ description: MacBookPro14,2 work maybe???
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/aurora-dx
-image-version: stable # latest is also supported if you want new updates ASAP
+image-version: latest # latest is also supported if you want new updates ASAP
 
 stages:
 - name: firmwarez
@@ -21,7 +21,7 @@ stages:
       # it's hacky <3
       - apple-bcm-firmware.sh
       # download *part of* bootcamp driver pack, extract necessary files, dump em :)
-      - camera-calibration.sh
+      #- camera-calibration.sh
 
 modules:
 - type: files
@@ -41,18 +41,18 @@ modules:
   dest: /lib/firmware
 
 - type: rpm-ostree
-  # repos:
-  # - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
+  repos:
+  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
   
   install:
-  - tiny-dfr
+  #- tiny-dfr
 #  - bpftune # oh it isn't available in the repos lol; if i ever feel like it, gotta compile at build
 #  - facetimehd-kmod # webcam kernel module
   - mbpfan
 
-#- type: akmods
-#  install:
-#  - facetimehd # available as an akmod
+- type: akmods
+  install:
+  - facetimehd # available as an akmod
 
 - type: systemd
   system:
@@ -62,5 +62,5 @@ modules:
 #    - dirty-centisecs.service
 #    - memory-tweaks-gidro.service
 
-- type: initramfs # rebuild initramfs # only ostree?
+#- type: initramfs # rebuild initramfs # only ostree?
 - type: signing # this sets up the proper policy & signing files for signed images to work fully
