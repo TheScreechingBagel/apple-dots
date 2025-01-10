@@ -50,9 +50,9 @@ modules:
 #  - facetimehd-kmod # webcam kernel module
   - mbpfan
 
-- type: akmods
-  install:
-  - facetimehd # available as an akmod
+#- type: akmods
+#  install:
+#  - facetimehd # available as an akmod
 
 - type: systemd
   system:
