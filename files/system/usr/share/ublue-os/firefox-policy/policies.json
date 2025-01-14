@@ -1,8 +1,7 @@
-{   
+{
     "policies": {
-        "ExtensionSettings": {
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi",
-                "installation_mode": "normal_installed"
-        }
+      "Extensions": {
+        "Install": ["https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi"]
+      }
     }
-}
+  }
