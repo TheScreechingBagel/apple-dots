@@ -35,7 +35,7 @@ modules:
   - source: system/lib
     destination: /lib
   - source: rpm-ostree/akmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
-    destination: - /tmp/rpms/kmods/akmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
+    destination: /tmp/rpms/kmods/akmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
 
 #- type: copy
 #  from: firmwarez
