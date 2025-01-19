@@ -49,6 +49,9 @@ modules:
 #  - bpftune # oh it isn't available in the repos lol; if i ever feel like it, gotta compile at build
 #  - facetimehd-kmod # webcam kernel module
   - mbpfan
+  - akmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
+  - kmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
+  - macbook12-spi-driver-kmod-common-0.5-1.fc41.1.x86_64.rpm
 
 #- type: akmods
 #  install:
