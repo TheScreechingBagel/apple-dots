@@ -35,14 +35,14 @@ modules:
   - source: system/lib
     destination: /lib
 
-- type: copy
-  from: firmwarez
-  src: /out/lib/firmware/
-  dest: /lib/firmware
+#- type: copy
+#  from: firmwarez
+#  src: /out/lib/firmware/
+#  dest: /lib/firmware
 
 - type: rpm-ostree
-  repos:
-  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
+#  repos:
+#  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
   
   install:
   #- tiny-dfr
@@ -50,9 +50,9 @@ modules:
 #  - facetimehd-kmod # webcam kernel module
   - mbpfan
 
-- type: akmods
-  install:
-  - facetimehd # available as an akmod
+#- type: akmods
+#  install:
+#  - facetimehd # available as an akmod
 
 - type: systemd
   system:
