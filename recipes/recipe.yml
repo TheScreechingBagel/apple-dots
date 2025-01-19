@@ -21,7 +21,7 @@ stages:
       # it's hacky <3
       #- apple-bcm-firmware.sh # 404 :(
       # download *part of* bootcamp driver pack, extract necessary files, dump em :)
-      - camera-calibration.sh
+      #- camera-calibration.sh
 
 modules:
 - type: files
@@ -34,6 +34,8 @@ modules:
 #    destination: /lib/firmware
   - source: system/lib
     destination: /lib
+  - source: rpm-ostree/akmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
+    destination: - /tmp/rpms/kmods/akmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
 
 #- type: copy
 #  from: firmwarez
@@ -49,12 +51,13 @@ modules:
 #  - bpftune # oh it isn't available in the repos lol; if i ever feel like it, gotta compile at build
 #  - facetimehd-kmod # webcam kernel module
   - mbpfan
+  - kmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
+  - macbook12-spi-driver-kmod-common-0.5-1.fc41.1.x86_64.rpm
   
 - type: akmods
   install:
-  - rpm-ostree/akmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
-  - rpm-ostree/kmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64.rpm
-  - rpm-ostree/macbook12-spi-driver-kmod-common-0.5-1.fc41.1.x86_64.rpm
+  - akmod-macbook12-spi-driver-0.5-1.fc41.1.x86_64
+  
 #  - facetimehd # available as an akmod
 
 - type: systemd
