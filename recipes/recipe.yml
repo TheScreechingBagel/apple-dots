@@ -7,21 +7,21 @@ description: MacBookPro14,2 work maybe???
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/aurora-dx
-image-version: stable # latest is also supported if you want new updates ASAP
+image-version: latest # latest is also supported if you want new updates ASAP
 
-#stages:
-#- name: firmwarez
-#  from: docker.io/library/debian:stable-slim
-#  modules:
-#  - type: script
-#    scripts:
-#      - upd8.sh
-#      # pull Wifi/BT firmware sources from arch-t2 mirror
-#      # using asahi-installer fork to package for use in fedora
-#      # it's hacky <3
-#      - apple-bcm-firmware.sh # 404 :(
-#      # download *part of* bootcamp driver pack, extract necessary files, dump em :)
-#      #- camera-calibration.sh
+stages:
+- name: firmwarez
+  from: docker.io/library/debian:stable-slim
+  modules:
+  - type: script
+    scripts:
+      - upd8.sh
+      # pull Wifi/BT firmware sources from arch-t2 mirror
+      # using asahi-installer fork to package for use in fedora
+      # it's hacky <3
+      #- apple-bcm-firmware.sh # 404 :(
+      # download *part of* bootcamp driver pack, extract necessary files, dump em :)
+      - camera-calibration.sh
 
 modules:
 - type: files
@@ -35,10 +35,10 @@ modules:
   - source: system/lib
     destination: /lib
 
-#- type: copy
-#  from: firmwarez
-#  src: /out/lib/firmware/
-#  dest: /lib/firmware
+- type: copy
+  from: firmwarez
+  src: /out/lib/firmware/
+  dest: /lib/firmware
 
 - type: rpm-ostree
   repos:
@@ -50,9 +50,9 @@ modules:
 #  - facetimehd-kmod # webcam kernel module
   - mbpfan
 
-#- type: akmods
-#  install:
-#  - facetimehd # available as an akmod
+- type: akmods
+  install:
+  - facetimehd # available as an akmod
 
 - type: systemd
   system:
@@ -62,5 +62,5 @@ modules:
 #    - dirty-centisecs.service
 #    - memory-tweaks-gidro.service
 
-#- type: initramfs # rebuild initramfs # only ostree?
+- type: initramfs # rebuild initramfs # only ostree?
 - type: signing # this sets up the proper policy & signing files for signed images to work fully
