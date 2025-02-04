@@ -4,6 +4,8 @@
 
 an attempt to make a [ublue-os/aurora-dx](https://github.com/ublue-os/aurora) base image work nicely on a MacBookPro14,2 (2017 macbook pro 13in) - ie wifi firmware/settings, touchbar
 
+(and that one discord user with a MacBookPro13,2 ; hoping to not break anything for them =D)
+
 largely based on [lauretano/t2-atomic](https://github.com/lauretano/t2-atomic) without the T2 specific bits
 
 ## Installation

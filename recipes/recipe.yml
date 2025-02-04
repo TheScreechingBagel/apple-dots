@@ -9,19 +9,19 @@ description: MacBookPro14,2 work maybe???
 base-image: ghcr.io/ublue-os/aurora-dx
 image-version: latest # latest is also supported if you want new updates ASAP
 
-stages:
-- name: firmwarez
-  from: docker.io/library/debian:stable-slim
-  modules:
-  - type: script
-    scripts:
-      - upd8.sh
-      # pull Wifi/BT firmware sources from arch-t2 mirror
-      # using asahi-installer fork to package for use in fedora
-      # it's hacky <3
-      #- apple-bcm-firmware.sh # 404 :(
-      # download *part of* bootcamp driver pack, extract necessary files, dump em :)
-      - camera-calibration.sh
+#stages:
+#- name: firmwarez
+#  from: docker.io/library/debian:stable-slim
+#  modules:
+#  - type: script
+#    scripts:
+#      - upd8.sh
+#      # pull Wifi/BT firmware sources from arch-t2 mirror
+#      # using asahi-installer fork to package for use in fedora
+#      # it's hacky <3
+#      #- apple-bcm-firmware.sh # 404 :(
+#      # download *part of* bootcamp driver pack, extract necessary files, dump em :)
+#      - camera-calibration.sh
 
 modules:
 - type: files
@@ -35,14 +35,14 @@ modules:
   - source: system/lib
     destination: /lib
 
-- type: copy
-  from: firmwarez
-  src: /out/lib/firmware/
-  dest: /lib/firmware
+#- type: copy
+#  from: firmwarez
+#  src: /out/lib/firmware/
+#  dest: /lib/firmware
 
 - type: rpm-ostree
-  repos:
-  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
+#  repos:
+#  - https://copr.fedorainfracloud.org/coprs/mulderje/facetimehd-kmod/repo/fedora-%OS_VERSION%/mulderje-facetimehd-kmod-fedora-%OS_VERSION%.repo
   
   install:
   #- tiny-dfr
@@ -50,9 +50,9 @@ modules:
 #  - facetimehd-kmod # webcam kernel module
   - mbpfan
 
-- type: akmods
-  install:
-  - facetimehd # available as an akmod
+#- type: akmods
+#  install:
+#  - facetimehd # available as an akmod
 
 - type: systemd
   system:
